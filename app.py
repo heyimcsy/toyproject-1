@@ -14,13 +14,13 @@ def home():
 @app.route('/create',methods=["POST"])
 def save_post():
     num_receive = request.form['num_give']
-    o_receive = request.form['o_give']
+    c_receive = request.form['c_give']
 
-    print(num_receive, o_receive)
+    print(num_receive, c_receive)
 
     doc = {
         'question_num':num_receive,
-        'question_o':o_receive
+        'question_o':c_receive
     }
     db.toy.insert_one(doc)
     return jsonify({'msg':'답 저장 완료!'})
