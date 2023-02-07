@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프론트</title>
+    <style>
+        *{
+             background-color: #eae8e2;
+        }
+        .entire{
+
+             max-width: 560px;
+             min-width: 300px;
+             width: 100%;
+
+             margin: auto;
+        }
+        .mytitle{
+            color: black;
+            height: 140px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+        .container {
+            display: grid;
+            grid-template-columns: 90px 140px;
+            grid-template-rows: 30px 30px;
+            /*margin-left: 5px;*/
+            margin-right: 10px;
+            height: 60px;
+
+            font-size: 1.0rem;
+            font-weight: bold;
+        }
+
+        .item:nth-child(2) {
+            font-size: 1.0rem;
+            font-weight: normal;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+
+        .wrap{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .q_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+        .question {
+            display: flex;
+            height: 75px;
+            width: 470px;
+
+            font-size: 19px;
+
+            position: relative;
+        }
+
+        .q_num {
+            align-self: flex-start;
+            position: absolute;
+        }
+
+        .q_content {
+            height: 45px;
+            width: 440px;
+
+            position: absolute;
+            text-align: justify;
+            margin-left: 20px;
+            overflow: auto;
+        }
+
+        .opt_container {
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 18px;
+        }
+
+        .option {
+            display: flex;
+            height: 60px;
+            width: 470px;
+
+            font-size: 18px;
+
+            position: relative;
+        }
+
+        .opt_number {
+            align-self: flex-start;
+
+
+        }
+
+        .opt-content {
+
+            margin-left: 20px;
+
+            height: 40px;
+            width: 440px;
+
+            position: absolute;
+            text-align: justify;
+            margin-left: 25px;
+            overflow: auto;
+         }
+
+    </style>
+</head>
+<body>
+    <div class="entire">
+        <div class="mytitle">
+        <h1>테스트 제목</h1>
+        </div>
+
+        <div class="wrap">
+        <div class="container">
+            <div class="item">성명</div>
+            <div class="item">아이디 불러오는 곳</div>
+        </div>
+          <div class="container">
+            <div class="item">수험번호</div>
+            <div class="item">수험번호</div>
+        </div>
+        </div>
+
+        <div class="q_container">
+            <div class="question">
+                <div class="q_num">1.</div>
+                <div class="q_content">만약에 질문 길이가 엄청엄청엄청 길어지면 어떡해만약에 질문 길이가 엄청엄청엄청 어떡해만약에 질문 길어떡해만약에 어떡해만해해만약에 질문 길이가 엄청엄청엄질문 길이가 엄청엄청엄이가 엄청엄청엄해만약에 질문 길이가 엄청엄청엄질문 길이가 엄청엄청엄이가 엄청엄청엄만약에 질문 길이가 엄청엄청엄질문 길이가 엄청엄청엄이가 엄청엄청엄약에 질문 길이가 엄청엄청엄질문 길이가 엄청엄청엄이가 엄청엄청엄</div>
+            </div>
+
+            <div class="opt_container">
+                <div class="option">
+                    <div class="opt_number">①</div>
+                    <div class="opt-content">만약에 글씨가 엄청엄청엄청엄청 늘어나면</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">②</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">③</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">④</div>
+                    <div class="opt-content">보기</div>
+                </div>
+            </div>
+        </div>
+        <div class="q_container">
+            <div class="question">
+                <div class="q_num">2.</div>
+                <div class="q_content">만약에 질문 길이가 </div>
+            </div>
+
+            <div class="opt_container">
+                <div class="option">
+                    <div class="opt_number">①</div>
+                    <div class="opt-content">만약에 글씨가 엄청엄청엄청글씨가 엄청엄청엄글씨가 엄청글씨글씨가 엄청글씨가 엄청엄글씨가 엄청글씨가 엄청엄글씨가 엄청글씨가 엄청엄글씨가 엄청글씨가 엄청엄가 엄청엄청엄글씨가 엄청엄청엄글씨가 엄청엄청엄글씨가 엄청엄청엄엄청엄글씨가 엄청엄청엄글씨가 엄청엄청엄엄청 늘어나면</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">②</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">③</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">④</div>
+                    <div class="opt-content">보기</div>
+                </div>
+            </div>
+        </div>
+        <div class="q_container">
+            <div class="question">
+                <div class="q_num">3.</div>
+                <div class="q_content">만약에 질문 길이가 엄청엄청엄청청엄청엄이가 </div>
+            </div>
+
+            <div class="opt_container">
+                <div class="option">
+                    <div class="opt_number">①</div>
+                    <div class="opt-content">만약에 글씨가 엄청 늘어나면</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">②</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">③</div>
+                    <div class="opt-content">보기</div>
+                </div>
+                <div class="option">
+                    <div class="opt_number">④</div>
+                    <div class="opt-content">보기</div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
