@@ -12,15 +12,15 @@ def home():
     return render_template('createQ.html')
 
 @app.route('/create',methods=["POST"])
-def save_post():
+def save():
+    question_receive = request.form['question_give']
     num_receive = request.form['num_give']
-    c_receive = request.form['c_give']
 
-    print(num_receive, c_receive)
+    print(question_receive, num_receive)
 
     doc = {
-        'question_num':num_receive,
-        'question_o':c_receive
+        'question':question_receive,
+        'correctNum':num_receive
     }
     db.toy.insert_one(doc)
     return jsonify({'msg':'답 저장 완료!'})

@@ -19,9 +19,11 @@
         * {
             font-family: 'Jua', sans-serif;
         }
-        body{
+
+        body {
             background-color: #eae8e2;
         }
+
         #wrap {
             width: 95%;
             text-align: left;
@@ -38,9 +40,35 @@
         h3 {
             margin-top: 50px;
         }
-        .btn{
+
+        .btn {
             float: right;
             margin-left: 10px;
+        }
+
+        #float1 {
+            width: 450px;
+            float: right;
+            margin-bottom: 7px;
+        }
+
+        #float2 {
+            width: 450px;
+            float: right;
+            margin-bottom: 3px;
+        }
+
+        #float3 {
+            width: 450px;
+            float: right;
+        }
+
+        #float4 {
+            width: 450px;
+            float: right;
+        }
+        .form-check{
+            margin-bottom: 40px;
         }
 
 
@@ -50,32 +78,78 @@
 
         })
 
+        function save() {
 
-
-
-
-
-        function save(){
-
-            if(document.getElementById("input_check1").checked) {
+            if (document.getElementById("input_check1").checked) {
                 document.getElementById("input_check_hidden1").disabled = true;
                 alert(document.getElementById("input_check_hidden1").id, document.getElementById("input_check_hidden1").value)
+                let correctNum = 1
+                let question = document.getElementById('question1').innerText
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/create',
+                    data: {question_give: question, num_give: correctNum},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
             }
 
-            if(document.getElementById("input_check2").checked) {
+            if (document.getElementById("input_check2").checked) {
                 document.getElementById("input_check_hidden2").disabled = true;
                 alert(document.getElementById("input_check_hidden2").id, document.getElementById("input_check_hidden2").value)
+                let correctNum = 2
+                let question = document.getElementById('question1').innerText
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/create',
+                    data: {question_give: question, num_give: correctNum},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
             }
 
-            if(document.getElementById("input_check3").checked) {
+            if (document.getElementById("input_check3").checked) {
                 document.getElementById("input_check_hidden3").disabled = true;
                 alert(document.getElementById("input_check_hidden3").id, document.getElementById("input_check_hidden3").value)
+                let correctNum = 3
+                let question = document.getElementById('question1').innerText
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/create',
+                    data: {question_give: question, num_give: correctNum},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
             }
 
-            if(document.getElementById("input_check4").checked) {
+            if (document.getElementById("input_check4").checked) {
                 document.getElementById("input_check_hidden4").disabled = true;
                 alert(document.getElementById("input_check_hidden4").id, document.getElementById("input_check_hidden4").value)
+                let correctNum = 4
+                let question = document.getElementById('question1').innerText
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/create',
+                    data: {question_give: question, num_give: correctNum},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
             }
+            alert(correctNum)
+
+
         }
 
         function save_post() {
@@ -83,7 +157,7 @@
             let question_correct = document.getElementsByName("check")
 
 
-            console.log(question_num,question_correct)
+            console.log(question_num, question_correct)
 
             $.ajax({
                 type: 'POST',
@@ -126,38 +200,46 @@
 
 <h1>문제 생성하기</h1>
 <div id="wrap">
-    <h3 id="question">문제 1</h3>
+    <h3 id="question1">문제 1</h3>
+    <div class="form-floating mb-3">
+        <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">문제를 입력해주세요.</label>
+    </div>
     <div class="form-check">
+
         <input type="checkbox" name="input_check" value='1' id="input_check1"/>
         <input type="hidden" name="input_check" value='0' id="input_check_hidden1"/>
-        <label class="form-check-label">
-            1. (문제 내용 삽입)
-        </label>
+        <div id="float1">
+            <input type="text" class="form-control" id="formGroupExampleInput1">
+        </div>
     </div>
     <div class="form-check">
+
         <input type="checkbox" name="input_check" value='1' id="input_check2"/>
         <input type="hidden" name="input_check" value='0' id="input_check_hidden2"/>
-        <label class="form-check-label">
-            2. (문제 내용 삽입)
-        </label>
+        <div id="float2">
+            <input type="text" class="form-control" id="formGroupExampleInput2">
+        </div>
     </div>
     <div class="form-check">
+
         <input type="checkbox" name="input_check" value='1' id="input_check3"/>
         <input type="hidden" name="input_check" value='0' id="input_check_hidden3"/>
-        <label class="form-check-label" >
-            3. (문제 내용 삽입)
-        </label>
+        <div id="float3">
+            <input type="text" class="form-control" id="formGroupExampleInput3">
+        </div>
     </div>
     <div class="form-check">
+
         <input type="checkbox" name="input_check" value='1' id="input_check4"/>
         <input type="hidden" name="input_check" value='0' id="input_check_hidden4"/>
-        <label class="form-check-label">
-            4. (문제 내용 삽입)
-        </label>
+        <div id="float4">
+            <input type="text" class="form-control" id="formGroupExampleInput4">
+        </div>
     </div>
     <button type="button" class="btn btn-info">뒤로가기</button>
     <button type="button" class="btn btn-warning" id="save" onclick="save(); save_post();">저장</button>
-    <div id="ok_list">여기써라</div>
+
 
 </div>
 </body>
