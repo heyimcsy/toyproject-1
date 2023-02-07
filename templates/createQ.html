@@ -47,46 +47,53 @@
     </style>
     <script>
         $(document).ready(function () {
-            $('#save').click(function () {
-                if ($('#check1').is(":checked")) {
-                    alert($('#check1').val())
-                } else if ($('#check2').is(":checked")) {
-                    alert($('#check2').val())
-                } else if ($('#check3').is(":checked")) {
-                    alert($('#check3').val())
-                } else ($('#check4').is(":checked"))
-                alert($('#check4').val())
 
-            })
         })
 
 
 
-        function save(){
-            let obj_length = document.getElementsByName("check").length;
 
-            for(let i = 0 ; obj_length; i++){
-                if(document.getElementsByName("check")[i].checked == true){
-                    alert(document.getElementsByName("check")[i].value)
-                }
+
+
+        function save(){
+
+            if(document.getElementById("input_check1").checked) {
+                document.getElementById("input_check_hidden1").disabled = true;
+                alert(document.getElementById("input_check_hidden1").id, document.getElementById("input_check_hidden1").value)
+            }
+
+            if(document.getElementById("input_check2").checked) {
+                document.getElementById("input_check_hidden2").disabled = true;
+                alert(document.getElementById("input_check_hidden2").id, document.getElementById("input_check_hidden2").value)
+            }
+
+            if(document.getElementById("input_check3").checked) {
+                document.getElementById("input_check_hidden3").disabled = true;
+                alert(document.getElementById("input_check_hidden3").id, document.getElementById("input_check_hidden3").value)
+            }
+
+            if(document.getElementById("input_check4").checked) {
+                document.getElementById("input_check_hidden4").disabled = true;
+                alert(document.getElementById("input_check_hidden4").id, document.getElementById("input_check_hidden4").value)
             }
         }
 
         function save_post() {
             let question_num = document.getElementById("question")
-            let question_o = document.getElementsByName("check")
+            let question_correct = document.getElementsByName("check")
 
 
-            console.log(question_num,question_o)
+            console.log(question_num,question_correct)
 
             $.ajax({
                 type: 'POST',
                 url: '/create',
                 data: {
-                    num_give: question_num, O_give: question_o,
+                    num_give: question_num, o_give: question_correct,
                     success: function (response) {
                         alert(response['msg'])
-                        window.location.reload()
+                        console.log(this.num_give, this.c_give)
+
                     }
                 }
             })
@@ -121,31 +128,35 @@
 <div id="wrap">
     <h3 id="question">문제 1</h3>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="check" id="check1" value="1번">
+        <input type="checkbox" name="input_check" value='1' id="input_check1"/>
+        <input type="hidden" name="input_check" value='0' id="input_check_hidden1"/>
         <label class="form-check-label">
             1. (문제 내용 삽입)
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="check" id="check2" value="2번">
+        <input type="checkbox" name="input_check" value='1' id="input_check2"/>
+        <input type="hidden" name="input_check" value='0' id="input_check_hidden2"/>
         <label class="form-check-label">
             2. (문제 내용 삽입)
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="check" id="check3" value="3번">
+        <input type="checkbox" name="input_check" value='1' id="input_check3"/>
+        <input type="hidden" name="input_check" value='0' id="input_check_hidden3"/>
         <label class="form-check-label" >
             3. (문제 내용 삽입)
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="check"id="check4" value="4번">
+        <input type="checkbox" name="input_check" value='1' id="input_check4"/>
+        <input type="hidden" name="input_check" value='0' id="input_check_hidden4"/>
         <label class="form-check-label">
             4. (문제 내용 삽입)
         </label>
     </div>
     <button type="button" class="btn btn-info">뒤로가기</button>
-    <button type="button" class="btn btn-warning" id="save" onclick="save_post()">저장</button>
+    <button type="button" class="btn btn-warning" id="save" onclick="save(); save_post();">저장</button>
     <div id="ok_list">여기써라</div>
 
 </div>
