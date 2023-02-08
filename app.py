@@ -15,20 +15,29 @@ def home():
 def save():
     question_receive = request.form['question_give']
     num_receive = request.form['num_give']
+    question_name_receive = request.form['question_name_give']
+    question1_receive = request.form['question1_give']
+    question2_receive = request.form['question2_give']
+    question3_receive = request.form['question3_give']
+    question4_receive = request.form['question4_give']
 
-    print(question_receive, num_receive)
+    print(question_receive, num_receive, question_name_receive
+          , question1_receive, question2_receive
+          , question3_receive, question4_receive)
 
     doc = {
         'question':question_receive,
-        'correctNum':num_receive
+        'correctNum':num_receive,
+        'question_name': question_name_receive,
+        'question1':question1_receive,
+        'question2': question2_receive,
+        'question3': question3_receive,
+        'question4': question4_receive,
     }
     db.toy.insert_one(doc)
     return jsonify({'msg':'답 저장 완료!'})
 
-@app.route("/create", methods=["GET"])
-def save_get():
-    okay_list = list(db.toy.find({},{'_id':False}))
-    return jsonify({'ok':okay_list})
+
 
 
 

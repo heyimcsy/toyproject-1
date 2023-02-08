@@ -85,11 +85,18 @@
                 alert(document.getElementById("input_check_hidden1").id, document.getElementById("input_check_hidden1").value)
                 let correctNum = 1
                 let question = document.getElementById('question1').innerText
+                let question_name = document.getElementById('floatingInput').value
+                let question1 =document.getElementById('formGroupExampleInput1').value
+                let question2 =document.getElementById('formGroupExampleInput2').value
+                let question3 =document.getElementById('formGroupExampleInput3').value
+                let question4 =document.getElementById('formGroupExampleInput4').value
 
                 $.ajax({
                     type: 'POST',
                     url: '/create',
-                    data: {question_give: question, num_give: correctNum},
+                    data: {question_give: question, num_give: correctNum, question_name_give:question_name
+                            , question1_give :question1, question2_give :question2
+                            , question3_give :question3, question4_give :question4},
                     success: function (response) {
                         alert(response['msg'])
                         window.location.reload()
@@ -102,11 +109,18 @@
                 alert(document.getElementById("input_check_hidden2").id, document.getElementById("input_check_hidden2").value)
                 let correctNum = 2
                 let question = document.getElementById('question1').innerText
+                let question_name = document.getElementById('floatingInput').value
+                let question1 =document.getElementById('formGroupExampleInput1').value
+                let question2 =document.getElementById('formGroupExampleInput2').value
+                let question3 =document.getElementById('formGroupExampleInput3').value
+                let question4 =document.getElementById('formGroupExampleInput4').value
 
                 $.ajax({
                     type: 'POST',
                     url: '/create',
-                    data: {question_give: question, num_give: correctNum},
+                    data: {question_give: question, num_give: correctNum, question_name_give:question_name
+                            , question1_give :question1, question2_give :question2
+                            , question3_give :question3, question4_give :question4},
                     success: function (response) {
                         alert(response['msg'])
                         window.location.reload()
@@ -119,11 +133,18 @@
                 alert(document.getElementById("input_check_hidden3").id, document.getElementById("input_check_hidden3").value)
                 let correctNum = 3
                 let question = document.getElementById('question1').innerText
+                let question_name = document.getElementById('floatingInput').value
+                let question1 =document.getElementById('formGroupExampleInput1').value
+                let question2 =document.getElementById('formGroupExampleInput2').value
+                let question3 =document.getElementById('formGroupExampleInput3').value
+                let question4 =document.getElementById('formGroupExampleInput4').value
 
                 $.ajax({
                     type: 'POST',
                     url: '/create',
-                    data: {question_give: question, num_give: correctNum},
+                    data: {question_give: question, num_give: correctNum, question_name_give:question_name
+                            , question1_give :question1, question2_give :question2
+                            , question3_give :question3, question4_give :question4},
                     success: function (response) {
                         alert(response['msg'])
                         window.location.reload()
@@ -136,62 +157,31 @@
                 alert(document.getElementById("input_check_hidden4").id, document.getElementById("input_check_hidden4").value)
                 let correctNum = 4
                 let question = document.getElementById('question1').innerText
+                let question_name = document.getElementById('floatingInput').value
+                let question1 =document.getElementById('formGroupExampleInput1').value
+                let question2 =document.getElementById('formGroupExampleInput2').value
+                let question3 =document.getElementById('formGroupExampleInput3').value
+                let question4 =document.getElementById('formGroupExampleInput4').value
 
                 $.ajax({
                     type: 'POST',
                     url: '/create',
-                    data: {question_give: question, num_give: correctNum},
-                    success: function (response) {
+                    data: {question_give: question, num_give: correctNum,  question_name_give:question_name
+                            , question1_give :question1, question2_give :question2
+                            , question3_give :question3, question4_give :question4},
+                    success: function(response) {
                         alert(response['msg'])
                         window.location.reload()
                     }
                 })
             }
-            alert(correctNum)
-
-
         }
 
-        function save_post() {
-            let question_num = document.getElementById("question")
-            let question_correct = document.getElementsByName("check")
+        
 
 
-            console.log(question_num, question_correct)
 
-            $.ajax({
-                type: 'POST',
-                url: '/create',
-                data: {
-                    num_give: question_num, o_give: question_correct,
-                    success: function (response) {
-                        alert(response['msg'])
-                        console.log(this.num_give, this.c_give)
 
-                    }
-                }
-            })
-        }
-
-        function show_ok() {
-            $.ajax({
-                type: "GET",
-                url: "/create",
-                data: {},
-                success: function (response) {
-                    let rows = response['ok']
-                    for (let i = 0; i < rows.length; i++) {
-                        let question_num = rows[i]['question_num']
-                        let question_o = rows[i]['question_o']
-
-                        let temp_html = `${question_num}, ${question_o}`
-
-                        $('#ok_list').append(temp_html)
-                    }
-                }
-            })
-
-        }
 
     </script>
 </head>
@@ -237,8 +227,8 @@
             <input type="text" class="form-control" id="formGroupExampleInput4">
         </div>
     </div>
-    <button type="button" class="btn btn-info">뒤로가기</button>
-    <button type="button" class="btn btn-warning" id="save" onclick="save(); save_post();">저장</button>
+    <button type="button" class="btn btn-info" onclick="back_mainpage()">뒤로가기</button>
+    <button type="button" class="btn btn-warning" id="save" onclick="save();">저장</button>
 
 
 </div>
